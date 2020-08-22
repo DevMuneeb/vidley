@@ -1,11 +1,10 @@
-'use strict'
 import React, { useState, useEffect } from "react";
 import {getMovies} from "../services/fakeMovieService";
 import MoviesTable from "./moviesTable";
 import Pagination from "./common/pagination";
 import ListGroup  from "./listGroup";
 import Paginate from "../utils/paginate";
-import {getGenres, genres} from "../services/fakeGenreService";
+import {getGenres} from "../services/fakeGenreService";
 
 const Movies=()=>{
     const [moviestp,setmoviestp]=useState({

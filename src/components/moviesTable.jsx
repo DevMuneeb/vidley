@@ -1,9 +1,16 @@
 import React from "react";
 import Like from "./common/likes";
+import { Link,NavLink } from "react-router-dom";
 
 function MoviesTable(props){
     const {movies,onlike,ondelete}=props
     return(
+        <React.Fragment>
+        <Link to="/movies/new">
+        <button className="btn btn-lg btn-primary mb-4">
+         New Movie
+        </button>
+        </Link>
         <table className="table">
         <thead>
             <tr>
@@ -18,7 +25,12 @@ function MoviesTable(props){
                 movies.map(movie=>{
                  return(
                     <tr key={movie._id}>
-                        <td>{movie.title}</td>
+                        <td>
+                        <NavLink to={`/movies/${movie._id}`}>
+                        {movie.title}
+                        </NavLink>
+                        
+                        </td>
                         <td>{movie.genre.name}</td>
                         <td>{movie.numberInStock}</td>
                         <td>{movie.dailyRentalRate }</td>
@@ -35,6 +47,8 @@ function MoviesTable(props){
             }
         </tbody>
         </table>
+        </React.Fragment>
+
     );
 }
 
